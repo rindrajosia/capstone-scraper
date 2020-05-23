@@ -20,13 +20,13 @@ $ cd <folder>
 $ git clone https://github.com/rindrajosia/capstone-scraper.git
 ```
 
-To run the program:
-Step 1 - Install dependencies:
-in your terminal type:
-- gem install nokogiri
-- gem install open-uri
-Step 2 - in your terminal go to the folder you have saved the repository
-Step 3 - then go to bin folder and type: main
+## To run the program:
+# Step 1 - Install dependencies:
+- In your terminal type:
+* gem install nokogiri
+* gem install open-uri
+# Step 2 - in your terminal go to the folder you have saved the repository
+# Step 3 - then go to bin folder and type: main
 
 
 ## Built With
