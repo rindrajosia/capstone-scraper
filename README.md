@@ -6,8 +6,7 @@ In this project, I build my own scraper. The main goal is to scrape information 
 
 ## Web Scraping with Ruby and Nokogiri
 
-- Web scraping
-Web scraping is a programmatic method of extracting data from websites. When you browse the web you consume a ton of publicly available information.  As a user, all of this information is presented to you as unstructured data in the form of HTML documents.  Now imagine, what if you could take all of these pages of  and turn them into structured data, pick out the pieces you like and export it all to a database or spreadsheet.
+- Web scraping: is a programmatic method of extracting data from websites. When you browse the web you consume a ton of publicly available information.  As a user, all of this information is presented to you as unstructured data in the form of HTML documents.  Now imagine, what if you could take all of these pages of  and turn them into structured data, pick out the pieces you like and export it all to a database or spreadsheet.
 There are many ways to scrape data from websites but in this project I have built my own sraper.
 
 ## Getting Started
