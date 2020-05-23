@@ -15,7 +15,7 @@ describe House do
     end
   end
   describe '#house_hash' do
-    it 'Return an House object if the given argument is correct' do
+    it 'Return an hash' do
       expect(house.house_hash).to be_an Hash
     end
   end
