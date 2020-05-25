@@ -5,6 +5,8 @@ module Web
     parsed_page = Nokogiri::HTML(unparsed_page)
   end
 
-
+  def self.url_setting(page = 1)
+    page != 1 ? "https://www.jumia.mg/maisons-a-vendre?page=#{page}" : 'https://www.jumia.mg/maisons-a-vendre'
+  end
 end
 # rubocop:enable Security/Open, Lint/UselessAssignment
