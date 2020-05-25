@@ -10,4 +10,14 @@ class House
     @link = 'https://www.jumia.mg' + house_listing.css('a.post-link')[0].attributes['href'].value
   end
 
+  def house_hash
+    {
+      id: @id,
+      category: @category,
+      address: @address,
+      price: @price,
+      date: @date,
+      link: @link
+    }
+  end
 end
