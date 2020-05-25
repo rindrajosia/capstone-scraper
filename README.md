@@ -21,7 +21,7 @@ $ git clone https://github.com/rindrajosia/capstone-scraper.git
 
 ## To run the program:
 ### Step 1 - Install dependencies:
-- In your terminal type to the folder you have saved the repository:
+- In your terminal go to the folder you have saved the repository and type:
 * bundle install
 
 ### Step 2 - in your terminal go to the folder you have saved the repository
