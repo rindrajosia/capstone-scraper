@@ -18,6 +18,11 @@ $ cd <folder>
 
 $ git clone https://github.com/rindrajosia/capstone-scraper.git
 ```
+### To limit the numbers of page scraped:
+*  Go to the bin folder and open the main file then change "last_page" with the number of the page that you want to scrape:
+
+![screenshoot](./lastpage.png)
+
 
 ## To run the program:
 ### Step 1 - Install dependencies:
