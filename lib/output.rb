@@ -13,7 +13,13 @@ module Output
     end
   end
 
+  def self.compare_results(old_results, houses)
+    houses.each do |house|
+      old = old_results.find { |old_result| house[:id] == old_result['id'] }
 
+      warning(house, old) if house[:price] != old['price']
+    end
+  end
 end
 
 # rubocop:enable Security/Open
