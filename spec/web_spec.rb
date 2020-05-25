@@ -9,4 +9,9 @@ describe Web do
       expect(url_setting).to eq('https://www.jumia.mg/maisons-a-vendre')
     end
   end
+  describe '#get_page' do
+    it 'Return an Nokogiri object' do
+      expect(get_page).to be_an Nokogiri::HTML::Document
+    end
+  end
 end
