@@ -3,7 +3,7 @@
 require 'nokogiri'
 require 'open-uri'
 require 'json'
-require 'fileutils'
+require 'tmpdir'
 require_relative '../lib/house.rb'
 require_relative '../lib/web.rb'
 
@@ -40,6 +40,11 @@ while page <= last_page
   page += 1
 end
 
+def temp
+  tempfilename = File.join(Dir.tmpdir, 'search_result.json')
+  tempfile = File.new(tempfilename, 'w')
+end
+
 def check(houses, result_file = '../result/search_result.json')
   if File.exist?(result_file) && !File.zero?(result_file)
     old_results = JSON.parse(open(result_file).read)
@@ -49,7 +54,11 @@ def check(houses, result_file = '../result/search_result.json')
   end
 
   File.open(result_file, 'w+') do |file|
-    file << JSON.generate(houses)
+    if result_file == '/tmp/search_result.json'
+      file.puts JSON.generate(houses)
+    else
+      file << JSON.generate(houses)
+    end
   end
 end
 
@@ -63,6 +72,10 @@ def compare_results(old_results, houses)
   end
 end
 
-check(houses)
+if File.exist?('../result/search_result.json')
+  check(houses)
+else
+  check(houses, temp)
+end
 
 # rubocop:enable Security/Open
