@@ -2,6 +2,7 @@
 require 'nokogiri'
 require 'open-uri'
 require 'json'
+require 'fileutils'
 require_relative '../lib/house.rb'
 require_relative '../lib/web.rb'
 require_relative '../lib/output.rb'
@@ -21,7 +22,8 @@ def warning(house, old)
 end
 
 file = '../lib/search_result.json'
-File.new(file, File::CREAT | File::TRUNC | File::RDWR, 0o666) unless File.exist?(file)
+FileUtils.touch file unless File.exist?(file)
+
 houses = []
 list_houses = Web.get_page.css('div.post')
 par_page = list_houses.count
