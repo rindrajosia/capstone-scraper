@@ -1,7 +1,7 @@
 # rubocop:disable Security/Open
 require 'nokogiri'
 require 'open-uri'
-require './lib/house.rb'
+require_relative '../lib/house.rb'
 describe House do
   let(:url) { 'https://www.jumia.mg/maisons-a-vendre' }
   let(:unparsed_page) { open(url).read }
