@@ -32,6 +32,9 @@ $ git clone https://github.com/rindrajosia/capstone-scraper.git
 ### Step 2 - in your terminal go to the folder you have saved the repository
 ### Step 3 - then go to bin folder and type: ruby main
 
+## To check information result:
+* go to the file 'result/search_result.json'. If this file is empty, go to '/tmp/search_result.json'
+
 ## Testing with RSpec:
 * To test it you should go to your terminal on the folder you saved and type: rspec
 
