@@ -54,10 +54,10 @@ def check(houses, result_file = '../result/search_result.json')
   end
 
   File.open(result_file, 'w+') do |file|
-    if result_file == '/tmp/search_result.json'
-      file.puts JSON.generate(houses)
-    else
+    if result_file == '../result/search_result.json'
       file << JSON.generate(houses)
+    else
+      file.puts JSON.generate(houses)
     end
   end
 end
