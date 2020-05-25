@@ -20,6 +20,8 @@ def warning(house, old)
   \n Old price: #{old['price']} Ariary \t => New price #{house[:price]} Ariary"
 end
 
+file = '../lib/search_result.json'
+File.new(file, 'w') unless File.exist?(file)
 houses = []
 list_houses = Web.get_page.css('div.post')
 par_page = list_houses.count
