@@ -14,3 +14,8 @@ def show(house)
   ** link : #{house.link}"
   puts '===================================================================='
 end
+
+def warning(house, old)
+  puts "Warning: #{house[:category]} => The price has changed.
+  \n Old price: #{old['price']} Ariary \t => New price #{house[:price]} Ariary"
+end
