@@ -27,7 +27,7 @@ par_page = list_houses.count
 page = 1
 total = Web.get_page.css('ul.tabset li:first-child a').text.tr('()', '').split(' ').last.to_i
 last_page = (total / par_page).to_f.round
-while page <= 1
+while page <= last_page
   list_houses = Web.get_page(Web.url_setting(page)).css('div.post')
 
   puts "Page #{page}"
@@ -71,7 +71,6 @@ def compare_results(old_results, houses)
     end
   end
 end
-
 
 if File.exist?('../result/search_result.json')
   check(houses)
