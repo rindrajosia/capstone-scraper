@@ -1,0 +1,16 @@
+#!/usr/bin/env ruby
+require 'nokogiri'
+require 'open-uri'
+require 'json'
+require_relative '../lib/house.rb'
+require_relative '../lib/web.rb'
+require_relative '../lib/output.rb'
+
+def show(house)
+  puts "adds >> category : #{house.category}
+  ** address : #{house.address}
+  ** price : #{house.price} Ariary
+  ** date : #{house.date}
+  ** link : #{house.link}"
+  puts '===================================================================='
+end
