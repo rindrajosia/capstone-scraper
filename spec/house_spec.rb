@@ -14,5 +14,10 @@ describe House do
       expect(house).to be_an House
     end
   end
+  describe '#house_hash' do
+    it 'Return an hash' do
+      expect(house.house_hash).to be_an Hash
+    end
+  end
 end
 # rubocop:enable Security/Open
