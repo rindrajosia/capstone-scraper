@@ -20,17 +20,13 @@ def warning(house, old)
   puts "Warning: #{house[:category]} => The price has changed.
   \n Old price: #{old['price']} Ariary \t => New price #{house[:price]} Ariary"
 end
-
-file = '../lib/search_result.json'
-FileUtils.touch file unless File.exist?(file)
-
 houses = []
 list_houses = Web.get_page.css('div.post')
 par_page = list_houses.count
 page = 1
 total = Web.get_page.css('ul.tabset li:first-child a').text.tr('()', '').split(' ').last.to_i
 last_page = (total / par_page).to_f.round
-while page <= last_page
+while page <= 2
   list_houses = Web.get_page(Web.url_setting(page)).css('div.post')
 
   puts "Page #{page}"

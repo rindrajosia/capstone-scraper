@@ -1,6 +1,6 @@
 # rubocop:disable Security/Open
 module Output
-  def self.check(houses, result_file = '../lib/search_result.json')
+  def self.check(houses, result_file = '../result/search_result.json')
     if File.exist?(result_file) && !File.zero?(result_file)
       old_results = JSON.parse(open(result_file).read)
       compare_results(old_results, houses)
