@@ -6,7 +6,7 @@ module Output
       compare_results(old_results, houses)
     end
 
-    File.open(result_file, 'w') do |file|
+    File.open(result_file, 'w+') do |file|
       file << JSON.generate(houses)
     end
   end

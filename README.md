@@ -30,7 +30,7 @@ $ git clone https://github.com/rindrajosia/capstone-scraper.git
 * bundle install
 
 ### Step 2 - in your terminal go to the folder you have saved the repository
-### Step 3 - then go to bin folder and type: main
+### Step 3 - then go to bin folder and type: ruby main
 
 ## Testing with RSpec:
 * To test it you should go to your terminal on the folder you saved and type: rspec
