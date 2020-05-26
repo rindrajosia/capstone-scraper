@@ -1,0 +1,67 @@
+#!/usr/bin/env ruby
+# rubocop:disable Security/Open, Style/SafeNavigation
+require 'nokogiri'
+require 'open-uri'
+require 'json'
+require 'tmpdir'
+require_relative '../lib/house.rb'
+require_relative '../lib/web.rb'
+
+def show(house)
+  puts "adds >> category : #{house.category}
+  ** address : #{house.address}
+  ** price : #{house.price} Ariary
+  ** date : #{house.date}
+  ** link : #{house.link}"
+  puts '===================================================================='
+end
+
+def warning(house, old)
+  puts "Warning: #{house[:category]} => The price has changed.
+  \n Old price: #{old['price']} Ariary \t => New price #{house[:price]} Ariary"
+end
+
+houses = []
+list_houses = Web.get_page.css('div.post')
+par_page = list_houses.count
+page = 1
+total = Web.get_page.css('ul.tabset li:first-child a').text.tr('()', '').split(' ').last.to_i
+last_page = (total / par_page).to_f.round
+while page <= last_page
+  list_houses = Web.get_page(Web.url_setting(page)).css('div.post')
+
+  puts "Page #{page}"
+  puts Web.url_setting(page)
+  list_houses.each do |house_listing|
+    house = House.new(house_listing)
+    houses << house.house_hash
+    show(house)
+  end
+  page += 1
+end
+
+def check(houses)
+  tempfilename = File.join(Dir.tmpdir, 'search_result.json')
+  if File.exist?(tempfilename) && !File.zero?(tempfilename)
+    init = ''
+    IO.foreach(tempfilename) { |block| init += block }
+    old_results = JSON.parse(init)
+    compare_results(old_results, houses)
+  end
+
+  a_file = File.new(tempfilename, 'w')
+  a_file.syswrite(JSON.generate(houses)) if a_file
+end
+
+def compare_results(old_results, houses)
+  houses.each do |house|
+    old = old_results.find { |old_result| house[:id] == old_result['id'] }
+
+    unless old.nil?
+      warning(house, old) if house[:price] != old['price']
+    end
+  end
+end
+
+check(houses)
+# rubocop:enable Security/Open, Style/SafeNavigation
