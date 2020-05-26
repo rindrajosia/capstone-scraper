@@ -33,7 +33,7 @@ $ git clone https://github.com/rindrajosia/capstone-scraper.git
 ### Step 3 - then go to bin folder and type: ruby main
 
 ## To check information result:
-* go to the file 'result/search_result.json'. If this file is empty, go to '/tmp/search_result.json'
+* Go to '/tmp/search_result.json'
 
 ## Testing with RSpec:
 * To test it you should go to your terminal on the folder you saved and type: rspec

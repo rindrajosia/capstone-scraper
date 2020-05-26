@@ -1,5 +1,5 @@
 #!/usr/bin/env ruby
-# rubocop:disable Security/Open
+# rubocop:disable Security/Open, Style/SafeNavigation
 require 'nokogiri'
 require 'open-uri'
 require 'json'
@@ -40,26 +40,17 @@ while page <= last_page
   page += 1
 end
 
-def temp
+def check(houses)
   tempfilename = File.join(Dir.tmpdir, 'search_result.json')
-  File.zero?(tempfilename) ? File.new(tempfilename, 'w') : tempfilename
-end
-
-def check(houses, result_file = '../result/search_result.json')
-  if File.exist?(result_file) && !File.zero?(result_file)
-    old_results = JSON.parse(open(result_file).read)
+  if File.exist?(tempfilename) && !File.zero?(tempfilename)
+    init = ''
+    IO.foreach(tempfilename) { |block| init += block }
+    old_results = JSON.parse(init)
     compare_results(old_results, houses)
-  else
-    File.new(result_file, 'w+')
   end
 
-  File.open(result_file, 'w+') do |file|
-    if result_file == '../result/search_result.json'
-      file << JSON.generate(houses)
-    else
-      file.puts JSON.generate(houses)
-    end
-  end
+  a_file = File.new(tempfilename, 'w')
+  a_file.syswrite(JSON.generate(houses)) if a_file
 end
 
 def compare_results(old_results, houses)
@@ -72,10 +63,5 @@ def compare_results(old_results, houses)
   end
 end
 
-if File.exist?('../result/search_result.json')
-  check(houses)
-else
-  check(houses, temp)
-end
-
-# rubocop:enable Security/Open
+check(houses)
+# rubocop:enable Security/Open, Style/SafeNavigation
