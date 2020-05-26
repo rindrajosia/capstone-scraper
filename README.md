@@ -44,7 +44,7 @@ $ git clone https://github.com/rindrajosia/capstone-scraper.git
 
 ## Live Demo
 
-[Live Demo Link](https://dde1c147-05f9-4a8b-a536-f5765457e77b.ws-eu01.gitpod.io/#/workspace/capstone-scraper)
+[Live Demo Link](https://e98ccb26-5be0-4e37-bc5a-0c0a01893f51.ws-eu01.gitpod.io/#/workspace/capstone-scraper)
 
 ## Authors
 
