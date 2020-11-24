@@ -41,6 +41,8 @@ $ git clone https://github.com/rindrajosia/capstone-scraper.git
 ## Built With
 
 - Ruby
+- Nokogiri
+- Rspec
 
 ## Live Demo
 
