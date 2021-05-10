@@ -28,9 +28,7 @@ $ git clone https://github.com/rindrajosia/capstone-scraper.git
 ### Step 1 - Install dependencies:
 - In your terminal go to the folder you have saved the repository and type:
 * bundle install
-
-### Step 2 - in your terminal go to the folder you have saved the repository
-### Step 3 - then go to bin folder and type: ruby main
+### Step 2 - then go to bin folder and type: ruby main
 
 ## To check information result:
 * Go to '/tmp/search_result.json'
